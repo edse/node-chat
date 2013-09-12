@@ -6,7 +6,7 @@
     "start": "node app.js"
   },
   "dependencies": {
-    "socket.io": "latest",
-    "express": "latest"
+    "jquery": ">=1.10.2",
+    "bootstrap.css": ">=~2.3.2"
   }
 }

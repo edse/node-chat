@@ -3,7 +3,7 @@ socket.on('connect', function (data) {
   console.log('connect');
   console.log(data);
   $('#chat-content').html("");
-  $('.status').html('conectado');
+  $('.status').html('connected');
   $('.status').removeClass("text-danger").addClass("text-success");
   $('#input-name').prop('disabled', false);
   $('#input-message').prop('disabled', false);
@@ -13,7 +13,7 @@ socket.on('connect', function (data) {
 socket.on('disconnect', function (data) {
   console.log('disconnect');
   console.log(data);
-  $('.status').html('desconectado');
+  $('.status').html('disconnected');
   $('.status').removeClass("text-success").addClass("text-danger");
   $('#input-name').prop('disabled', true);
   $('#input-comment').prop('disabled', true);
@@ -25,6 +25,15 @@ socket.on('message', function (data) {
   console.log(data);
   console.log(data);
   $('#chat-content').append('<tr id="id'+data.id+'"><td class="text-primary time">'+data.time+'</td><td><strong>'+data.name+':</strong> '+data.message+'</td></tr>');
+  $("#chat-content").scrollTop(document.getElementById('chat-content').scrollHeight+2); 
+});
+
+socket.on('messages', function (data) {
+  console.log('message');
+  console.log(data);
+  $.each(data.messages, function( key, value ) {
+    $('#chat-content').append('<tr id="id'+value.id+'"><td class="text-primary time">'+value.time+'</td><td><strong>'+value.name+':</strong> '+value.message+'</td></tr>');
+  });
   $("#chat-content").scrollTop(document.getElementById('chat-content').scrollHeight+2); 
 });
 
