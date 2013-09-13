@@ -1,12 +1,13 @@
 {
-  "name": "node-websocket",
+  "name": "node-websocket-server",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node app.js"
   },
   "dependencies": {
-    "jquery": ">=1.10.2",
-    "bootstrap.css": ">=~2.3.2"
+    "socket.io": ">=0.9.16",
+    "express": ">=3.4.0",
+    "forever": ">=0.10.8"
   }
 }
