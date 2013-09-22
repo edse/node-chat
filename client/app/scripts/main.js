@@ -1,4 +1,4 @@
-var socket = io.connect('http://localhost:3000');
+var socket = io.connect('http://ec2-54-200-64-193.us-west-2.compute.amazonaws.com:8080');
 socket.on('connect', function (data) {
   console.log('connect');
   console.log(data);
